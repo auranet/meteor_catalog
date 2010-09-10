@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: meteor_catalog_development
+
+test:
+  adapter: postgresql
+  database: meteor_catalog_test
+
+production:
+  adapter: postgresql
+  database: meteor_catalog

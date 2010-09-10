@@ -1,0 +1,899 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<!-- ====== Main Navigation ====== -->
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Plugin"><ht key="plugins.nav_item">Plugins</ht></nav-item>
+    <nav-item with="&Widget"><ht key="widgets.nav_item">Widgets</ht></nav-item>
+  </navigation>
+</def>
+
+
+
+
+<!-- ====== License Pages ====== -->
+
+<def tag="index-page" for="License">
+  <page merge title="#{ht 'licenses.index.title', :default=>['Licenses'] }">
+    <body: class="index-page license" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="licenses.index.heading">
+            Licenses
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="licenses.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="licenses.actions.new">New License</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="License">
+  <page merge title="#{ht 'licenses.new.title', :default=>[' New License'] }">
+    <body: class="new-page license" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="licenses.new.heading">
+            New License
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'licenses.actions.create', :default=>['Create License']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="License">
+  <page merge title="#{ht 'licenses.show.title', :default=>['License'] }">
+
+    <body: class="show-page license" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="licenses.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="open_source" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="licenses.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit License
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="plugin" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="License">
+  <page merge title="#{ht 'licenses.edit.title', :default=>['Edit License'] }">
+
+    <body: class="edit-page license" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="licenses.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'licenses.actions.delete', :default=>['Remove This License']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+<def tag="new-for-plugin-page" polymorphic/>
+<def tag="new-for-plugin-page" for="License">
+  <page merge title="#{ht 'licenses.new_for_owner.title', :default=>['New License for']} #{name :with => @plugin}">
+    <body: class="new-for-owner-page  license" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="licenses.new_for_owner.heading">
+            New License
+          </ht>
+        </h2>
+        <h3 param="subheading">
+          <ht key="licenses.new_for_owner.subheading">
+            For:
+          </ht>
+          <a with="&@plugin"/>
+        </h3>
+      </header>
+
+      <section param="content-body">
+        <form owner="plugin" method="post" param>
+          <field-list: skip="plugin"/>
+          <submit: label="#{ht 'licenses.actions.create', :default=>['Create License']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Parameter Pages ====== -->
+
+<def tag="index-page" for="Parameter">
+  <page merge title="#{ht 'parameters.index.title', :default=>['Parameters'] }">
+    <body: class="index-page parameter" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="parameters.index.heading">
+            Parameters
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="parameters.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="parameters.actions.new">New Parameter</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Parameter">
+  <page merge title="#{ht 'parameters.new.title', :default=>[' New Parameter'] }">
+    <body: class="new-page parameter" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="parameters.new.heading">
+            New Parameter
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'parameters.actions.create', :default=>['Create Parameter']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Parameter">
+  <page merge title="#{ht 'parameters.show.title', :default=>['Parameter'] }">
+
+    <body: class="show-page parameter" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:widget param="parent-link">&laquo; <ht key="parameters.actions.back" to="widget"><name/></ht></a:widget>
+            <h2 param="heading">
+              <ht key="parameters.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="parameters.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Parameter
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="parameters.collection.heading.other" >
+                  Valid Values
+                </ht>
+              </h3>
+
+              <collection:valid_values param/>
+
+              <section param="add-to-collection" if="&can_create?(@parameter.valid_values)">
+                <h3 param="add-form-heading">
+                  <ht key="valid_values.collection.add_form_heading">
+                    Add a Valid Value
+                  </ht>
+                </h3>
+                <form with="&@valid_value || new_for_current_user(@parameter.valid_values)" owner="parameter" without-cancel param>
+                  <field-list: skip="parameter"/>
+                  <submit: label="#{ht 'valid_values.actions.add', :default=>['Add'] }"/>
+                </form>
+              </section>
+            </section>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Parameter">
+  <page merge title="#{ht 'parameters.edit.title', :default=>['Edit Parameter'] }">
+
+    <body: class="edit-page parameter" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="parameters.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'parameters.actions.delete', :default=>['Remove This Parameter']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+
+
+
+<!-- ====== Plugin Pages ====== -->
+
+<def tag="index-page" for="Plugin">
+  <page merge title="#{ht 'plugins.index.title', :default=>['Plugins'] }">
+    <body: class="index-page plugin" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="plugins.index.heading">
+            Plugins
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="plugins.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="plugins.actions.new">New Plugin</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Plugin">
+  <page merge title="#{ht 'plugins.new.title', :default=>[' New Plugin'] }">
+    <body: class="new-page plugin" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="plugins.new.heading">
+            New Plugin
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'plugins.actions.create', :default=>['Create Plugin']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Plugin">
+  <page merge title="#{ht 'plugins.show.title', :default=>['Plugin'] }">
+
+    <body: class="show-page plugin" param/>
+
+    <content: param>
+      <section-group>
+        <section param="main-content">
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="plugins.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="plugins.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Plugin
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body" with-flash-messages>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="plugins.collection.heading.other" >
+                  Widgets
+                </ht>
+              </h3>
+
+              <collection:widgets param/>
+
+              <section param="add-to-collection" if="&can_create?(@plugin.widgets)">
+                <h3 param="add-form-heading">
+                  <ht key="widgets.collection.add_form_heading">
+                    Add a Widget
+                  </ht>
+                </h3>
+                <form with="&@widget || new_for_current_user(@plugin.widgets)" owner="plugin" without-cancel param>
+                  <field-list: skip="plugin"/>
+                  <submit: label="#{ht 'widgets.actions.add', :default=>['Add'] }"/>
+                </form>
+              </section>
+            </section>
+          </section>
+        </section>
+
+        <aside param>
+          <section param="licenses-collection-section">
+            <h3 param="licenses-collection-heading">
+              <ht key="licenses.collection.heading.other" >
+                Licenses
+              </ht>
+            </h3>
+            <collection:licenses  param="licenses-collection"/>
+          </section>
+        </aside>
+      </section-group>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Plugin">
+  <page merge title="#{ht 'plugins.edit.title', :default=>['Edit Plugin'] }">
+
+    <body: class="edit-page plugin" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="plugins.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'plugins.actions.delete', :default=>['Remove This Plugin']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== User Pages ====== -->
+
+<def tag="index-page" for="User">
+  <page merge title="#{ht 'users.index.title', :default=>['Users'] }">
+    <body: class="index-page user" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.index.heading">
+            Users
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="users.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="User">
+  <page merge title="#{ht 'users.new.title', :default=>[' New User'] }">
+    <body: class="new-page user" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="users.new.heading">
+            New User
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'users.actions.create', :default=>['Create User']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="User">
+  <page merge title="#{ht 'users.show.title', :default=>['User'] }">
+
+    <body: class="show-page user" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="users.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="administrator" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="users.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit User
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="email_address, state" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="User">
+  <page merge title="#{ht 'users.edit.title', :default=>['Edit User'] }">
+
+    <body: class="edit-page user" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="users.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'users.actions.delete', :default=>['Remove This User']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="signup-page" polymorphic/>
+<def tag="signup-page" for="User">
+  
+  <page title="#{ht 'users.signup.title', :default=>['Signup']}" merge>  
+
+    <body: class="lifecycle-start-page signup-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.signup.heading">
+            Signup
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <signup-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="reset-password-page" polymorphic/>
+<def tag="reset-password-page" for="User">
+  <page title="#{ht 'users.reset_password.title', :default=>['Reset Password']}" merge>
+
+    <body: class="lifecycle-transition-page reset-password-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.reset_password.heading">
+            Reset Password
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <reset-password-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+<!-- ====== ValidValue Pages ====== -->
+
+<def tag="index-page" for="ValidValue">
+  <page merge title="#{ht 'valid_values.index.title', :default=>['Valid Values'] }">
+    <body: class="index-page valid-value" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="valid_values.index.heading">
+            Valid Values
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="valid_values.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="valid_values.actions.new">New Valid Value</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="ValidValue">
+  <page merge title="#{ht 'valid_values.new.title', :default=>[' New Valid Value'] }">
+    <body: class="new-page valid-value" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="valid_values.new.heading">
+            New Valid Value
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'valid_values.actions.create', :default=>['Create Valid Value']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="ValidValue">
+  <page merge title="#{ht 'valid_values.show.title', :default=>['Valid Value'] }">
+
+    <body: class="show-page valid-value" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:parameter param="parent-link">&laquo; <ht key="valid_values.actions.back" to="parameter"><name/></ht></a:parameter>
+            <h2 param="heading">
+              <ht key="valid_values.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="valid_values.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Valid Value
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+            <field-list fields="value" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="ValidValue">
+  <page merge title="#{ht 'valid_values.edit.title', :default=>['Edit Valid Value'] }">
+
+    <body: class="edit-page valid-value" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="valid_values.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'valid_values.actions.delete', :default=>['Remove This Valid Value']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+
+
+
+<!-- ====== Widget Pages ====== -->
+
+<def tag="index-page" for="Widget">
+  <page merge title="#{ht 'widgets.index.title', :default=>['Widgets'] }">
+    <body: class="index-page widget" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="widgets.index.heading">
+            Widgets
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="widgets.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="widgets.actions.new">New Widget</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Widget">
+  <page merge title="#{ht 'widgets.new.title', :default=>[' New Widget'] }">
+    <body: class="new-page widget" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="widgets.new.heading">
+            New Widget
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'widgets.actions.create', :default=>['Create Widget']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Widget">
+  <page merge title="#{ht 'widgets.show.title', :default=>['Widget'] }">
+
+    <body: class="show-page widget" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:plugin param="parent-link">&laquo; <ht key="widgets.actions.back" to="plugin"><name/></ht></a:plugin>
+            <h2 param="heading">
+              <ht key="widgets.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="widgets.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Widget
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="short_description, long_description" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="widgets.collection.heading.other" >
+                  Parameters
+                </ht>
+              </h3>
+
+              <collection:parameters param/>
+
+              <section param="add-to-collection" if="&can_create?(@widget.parameters)">
+                <h3 param="add-form-heading">
+                  <ht key="parameters.collection.add_form_heading">
+                    Add a Parameter
+                  </ht>
+                </h3>
+                <form with="&@parameter || new_for_current_user(@widget.parameters)" owner="widget" without-cancel param>
+                  <field-list: skip="widget"/>
+                  <submit: label="#{ht 'parameters.actions.add', :default=>['Add'] }"/>
+                </form>
+              </section>
+            </section>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Widget">
+  <page merge title="#{ht 'widgets.edit.title', :default=>['Edit Widget'] }">
+
+    <body: class="edit-page widget" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="widgets.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'widgets.actions.delete', :default=>['Remove This Widget']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+
+

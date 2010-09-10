@@ -1,0 +1,65 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<def tag="card" for="License">
+  <card class="license" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+  </card>
+</def>
+
+<def tag="card" for="Parameter">
+  <card class="parameter" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <ht key="valid_values.collection.count" count="&this.valid_values.size">
+         <count:valid_values param/>
+      </ht>
+    </body:>
+  </card>
+</def>
+
+<def tag="card" for="Plugin">
+  <card class="plugin" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <ht key="widgets.collection.count" count="&this.widgets.size">
+         <count:widgets param/>
+      </ht>
+    </body:>
+  </card>
+</def>
+
+<def tag="card" for="User">
+  <card class="user" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+  </card>
+</def>
+
+<def tag="card" for="ValidValue">
+  <card class="valid-value" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+  </card>
+</def>
+
+<def tag="card" for="Widget">
+  <card class="widget" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <ht key="parameters.collection.count" count="&this.parameters.size">
+         <count:parameters param/>
+      </ht>
+    </body:>
+  </card>
+</def>
+
