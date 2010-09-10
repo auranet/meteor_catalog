@@ -8,6 +8,31 @@
 
 <def tag="app-name">Meteor Catalog</def>
 
+<def tag="card" for="Parameter">
+  <card class="parameter" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <ht key="valid_values.collection.count" count="&this.valid_values.size">
+         <count:valid_values param/>
+      </ht>
+      <collection:valid_values/>
+    </body:>
+  </card>
+</def>
+
+<def tag="card" for="ValidValue">
+  <card class="valid-value" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <view:description/>
+    </body:>
+  </card>
+</def>
+
 <def tag="card" for="Widget">
   <card class="widget" param="default" merge>
     <header: param>
@@ -21,4 +46,3 @@
     </body:>
   </card>
 </def>
-
