@@ -1,0 +1,11 @@
+<show-page>
+  <aside:>
+    <h2>Licenses</h2>
+    <collection:licenses part="licenses"/>
+
+    <h2>Add a license</h2>
+    <form with="&License.new(:plugin => this)" update="licenses">
+      <field-list: fields="name, open_source"/>
+    </form>
+  </aside:>
+</show-page>

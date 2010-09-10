@@ -35,9 +35,6 @@
       </header>
 
       <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="licenses.actions.new">New License</ht>
-        </a>
 
         <page-nav param="top-page-nav"/>
 
@@ -45,6 +42,13 @@
 
         <page-nav param="bottom-page-nav"/>
 
+
+        <div param="new-form">
+          <h3 param="new-form-heading">
+            <ht key="licenses.form.new.heading">New License</ht>
+          </h3>
+          <form with="&@invalid_record || new_for_current_user(License)" param/>
+        </div>
 
       </section>
     </content:>
@@ -89,12 +93,6 @@
             </h2>
 
             <record-flags fields="open_source" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="licenses.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit License
-              </ht>
-            </a>
           </header>
 
           <section param="content-body">
