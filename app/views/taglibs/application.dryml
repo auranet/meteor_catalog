@@ -7,3 +7,18 @@
 <set-theme name="clean"/>
 
 <def tag="app-name">Meteor Catalog</def>
+
+<def tag="card" for="Widget">
+  <card class="widget" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <view:short_description/>
+      <ht key="parameters.collection.count" count="&this.parameters.size">
+         <count:parameters param/>
+      </ht>
+    </body:>
+  </card>
+</def>
+
