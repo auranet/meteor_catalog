@@ -12,6 +12,8 @@ class Widget < ActiveRecord::Base
   belongs_to :plugin
   has_many :parameters
 
+  set_search_columns :name, :short_description, :long_description
+
   # --- Permissions --- #
 
   def create_permitted?
