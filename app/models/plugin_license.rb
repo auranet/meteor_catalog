@@ -1,17 +1,17 @@
-class License < ActiveRecord::Base
+class PluginLicense < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
   fields do
-    name        :string
-    open_source :boolean
     timestamps
   end
 
-  has_many :plugins, :through => :plugin_licenses, :accessible => true
-  has_many :plugin_licenses, :dependent => :destroy
+  belongs_to :plugin
+  belongs_to :license
 
-  set_default_order "name"
+  def name
+    license.name
+  end
 
   # --- Permissions --- #
 

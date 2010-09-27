@@ -5,6 +5,7 @@
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&License"><ht key="licenses.nav_item">Licenses</ht></nav-item>
     <nav-item with="&Plugin"><ht key="plugins.nav_item">Plugins</ht></nav-item>
     <nav-item with="&Widget"><ht key="widgets.nav_item">Widgets</ht></nav-item>
   </navigation>
@@ -35,6 +36,9 @@
       </header>
 
       <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="licenses.actions.new">New License</ht>
+        </a>
 
         <page-nav param="top-page-nav"/>
 
@@ -42,13 +46,6 @@
 
         <page-nav param="bottom-page-nav"/>
 
-
-        <div param="new-form">
-          <h3 param="new-form-heading">
-            <ht key="licenses.form.new.heading">New License</ht>
-          </h3>
-          <form with="&@invalid_record || new_for_current_user(License)" param/>
-        </div>
 
       </section>
     </content:>
@@ -93,10 +90,15 @@
             </h2>
 
             <record-flags fields="open_source" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="licenses.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit License
+              </ht>
+            </a>
           </header>
 
           <section param="content-body">
-            <field-list fields="plugin" param/>
           </section>
     </content:>
 
@@ -124,38 +126,6 @@
       </section>
     </content:>
 
-  </page>
-</def>
-
-
-
-<def tag="new-for-plugin-page" polymorphic/>
-<def tag="new-for-plugin-page" for="License">
-  <page merge title="#{ht 'licenses.new_for_owner.title', :default=>['New License for']} #{name :with => @plugin}">
-    <body: class="new-for-owner-page  license" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="licenses.new_for_owner.heading">
-            New License
-          </ht>
-        </h2>
-        <h3 param="subheading">
-          <ht key="licenses.new_for_owner.subheading">
-            For:
-          </ht>
-          <a with="&@plugin"/>
-        </h3>
-      </header>
-
-      <section param="content-body">
-        <form owner="plugin" method="post" param>
-          <field-list: skip="plugin"/>
-          <submit: label="#{ht 'licenses.actions.create', :default=>['Create License']}"/>
-        </form>
-      </section>
-    </content:>
   </page>
 </def>
 
@@ -303,6 +273,156 @@
 
 
 
+
+
+
+
+
+<!-- ====== PluginLicense Pages ====== -->
+
+<def tag="index-page" for="PluginLicense">
+  <page merge title="#{ht 'plugin_licenses.index.title', :default=>['Plugin Licenses'] }">
+    <body: class="index-page plugin-license" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="plugin_licenses.index.heading">
+            Plugin Licenses
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="plugin_licenses.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+        <div param="new-form">
+          <h3 param="new-form-heading">
+            <ht key="plugin_licenses.form.new.heading">New Plugin License</ht>
+          </h3>
+          <form with="&@invalid_record || new_for_current_user(PluginLicense)" param/>
+        </div>
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="PluginLicense">
+  <page merge title="#{ht 'plugin_licenses.new.title', :default=>[' New Plugin License'] }">
+    <body: class="new-page plugin-license" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="plugin_licenses.new.heading">
+            New Plugin License
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'plugin_licenses.actions.create', :default=>['Create Plugin License']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="PluginLicense">
+  <page merge title="#{ht 'plugin_licenses.show.title', :default=>['Plugin License'] }">
+
+    <body: class="show-page plugin-license" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="plugin_licenses.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="license, plugin" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="PluginLicense">
+  <page merge title="#{ht 'plugin_licenses.edit.title', :default=>['Edit Plugin License'] }">
+
+    <body: class="edit-page plugin-license" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="plugin_licenses.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'plugin_licenses.actions.delete', :default=>['Remove This Plugin License']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+<def tag="new-for-plugin-page" polymorphic/>
+<def tag="new-for-plugin-page" for="PluginLicense">
+  <page merge title="#{ht 'plugin_licenses.new_for_owner.title', :default=>['New Plugin License for']} #{name :with => @plugin}">
+    <body: class="new-for-owner-page  plugin-license" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="plugin_licenses.new_for_owner.heading">
+            New Plugin License
+          </ht>
+        </h2>
+        <h3 param="subheading">
+          <ht key="plugin_licenses.new_for_owner.subheading">
+            For:
+          </ht>
+          <a with="&@plugin"/>
+        </h3>
+      </header>
+
+      <section param="content-body">
+        <form owner="plugin" method="post" param>
+          <field-list: skip="plugin"/>
+          <submit: label="#{ht 'plugin_licenses.actions.create', :default=>['Create Plugin License']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
 
 
 

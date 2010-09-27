@@ -7,8 +7,9 @@ class Plugin < ActiveRecord::Base
     timestamps
   end
 
-  has_many :licenses
-  has_many :widgets
+  has_many :widgets, :dependent => :destroy
+  has_many :licenses, :through => :plugin_licenses, :accessible => true
+  has_many :plugin_licenses, :dependent => :destroy
 
   # --- Permissions --- #
 

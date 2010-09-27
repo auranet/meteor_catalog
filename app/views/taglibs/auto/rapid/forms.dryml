@@ -3,7 +3,7 @@
 <def tag="form" for="License">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, open_source, plugin" param/>
+    <field-list fields="name, open_source, plugins" param/>
     <div param="actions">
       <submit label="#{ht 'licenses.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -24,10 +24,22 @@
 
 
 
+<def tag="form" for="PluginLicense">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="license, plugin" param/>
+    <div param="actions">
+      <submit label="#{ht 'plugin_licenses.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
 <def tag="form" for="Plugin">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name" param/>
+    <field-list fields="name, licenses" param/>
     <div param="actions">
       <submit label="#{ht 'plugins.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

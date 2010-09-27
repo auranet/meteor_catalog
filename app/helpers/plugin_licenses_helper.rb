@@ -1,0 +1,2 @@
+module PluginLicensesHelper
+end

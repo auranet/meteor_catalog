@@ -9,17 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100910175229) do
+ActiveRecord::Schema.define(:version => 20100927173327) do
 
   create_table "licenses", :force => true do |t|
     t.string   "name"
     t.boolean  "open_source"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "plugin_id"
   end
-
-  add_index "licenses", ["plugin_id"], :name => "index_licenses_on_plugin_id"
 
   create_table "parameters", :force => true do |t|
     t.string   "name"
@@ -30,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20100910175229) do
   end
 
   add_index "parameters", ["widget_id"], :name => "index_parameters_on_widget_id"
+
+  create_table "plugin_licenses", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "plugin_id"
+    t.integer  "license_id"
+  end
+
+  add_index "plugin_licenses", ["license_id"], :name => "index_plugin_licenses_on_license_id"
+  add_index "plugin_licenses", ["plugin_id"], :name => "index_plugin_licenses_on_plugin_id"
 
   create_table "plugins", :force => true do |t|
     t.string   "name"
