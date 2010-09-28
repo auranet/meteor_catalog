@@ -11,10 +11,10 @@
 <def tag="card" for="Parameter">
   <card class="parameter" param="default" merge>
     <header: param>
-      <h4 param="heading"><a><name/></a><delete-button label="X"/></h4>
+      <h4 param="heading"><editor:name/><delete-button/></h4>
     </header:>
     <body: param>
-      <view:description/>
+      <editor:description/>
       <collection:valid_values part="self"/>
       <form with="&ValidValue.new(:parameter => this)" without-cancel update="self">
         <field-list: skip="parameter"/>
@@ -27,7 +27,7 @@
 <def tag="card" for="ValidValue">
   <card class="valid-value" param="default" merge>
     <header: param>
-      <h4 param="heading"><a><name/></a><delete-button label="X"/></h4>
+      <h4 param="heading"><editor:name/><delete-button/></h4>
     </header:>
     <body: param>
       <view:description/>
