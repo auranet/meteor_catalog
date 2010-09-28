@@ -27,10 +27,10 @@
 <def tag="card" for="ValidValue">
   <card class="valid-value" param="default" merge>
     <header: param>
-      <h4 param="heading"><editor:name/><delete-button/></h4>
+      <h4 param="heading"><editor:value/><delete-button/></h4>
     </header:>
     <body: param>
-      <view:description/>
+      <editor:description/>
     </body:>
   </card>
 </def>
