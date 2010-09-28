@@ -1,0 +1,16 @@
+<edit-page>
+  <append-content-body:>
+    <collection:parameters part="parameters"/>
+    <section if="&can_create?(@widget.parameters)">
+      <h3>
+        <ht key="parameters.collection.add_form_heading">
+          Add a Parameter
+        </ht>
+      </h3>
+      <form with="&@parameter || new_for_current_user(@widget.parameters)" owner="widget" without-cancel update="parameters">
+        <field-list: skip="widget"/>
+        <submit: label="#{ht 'parameters.actions.add', :default=>['Add'] }"/>
+      </form>
+    </section>
+  </append-content-body:>
+</edit-page>
