@@ -155,9 +155,6 @@
       </header>
 
       <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="parameters.actions.new">New Parameter</ht>
-        </a>
 
         <page-nav param="top-page-nav"/>
 
@@ -165,6 +162,13 @@
 
         <page-nav param="bottom-page-nav"/>
 
+
+        <div param="new-form">
+          <h3 param="new-form-heading">
+            <ht key="parameters.form.new.heading">New Parameter</ht>
+          </h3>
+          <form with="&@invalid_record || new_for_current_user(Parameter)" param/>
+        </div>
 
       </section>
     </content:>
@@ -210,12 +214,6 @@
             </h2>
 
             <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="parameters.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Parameter
-              </ht>
-            </a>
           </header>
 
           <section param="content-body">
@@ -768,9 +766,6 @@
       </header>
 
       <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="valid_values.actions.new">New Valid Value</ht>
-        </a>
 
         <page-nav param="top-page-nav"/>
 
@@ -778,6 +773,13 @@
 
         <page-nav param="bottom-page-nav"/>
 
+
+        <div param="new-form">
+          <h3 param="new-form-heading">
+            <ht key="valid_values.form.new.heading">New Valid Value</ht>
+          </h3>
+          <form with="&@invalid_record || new_for_current_user(ValidValue)" param/>
+        </div>
 
       </section>
     </content:>
@@ -823,12 +825,6 @@
             </h2>
 
             <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="valid_values.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Valid Value
-              </ht>
-            </a>
           </header>
 
           <section param="content-body">

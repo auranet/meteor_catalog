@@ -11,9 +11,13 @@
 <def tag="card" for="Parameter">
   <card class="parameter" param="default" merge>
     <header: param>
-      <h4 param="heading"><a><name/></a></h4>
+      <h4 param="heading"><name/></h4>
+      <div param="actions">
+        <delete-button label="X" param/>
+      </div>
     </header:>
     <body: param>
+      <view:description param="description"/>
       <ht key="valid_values.collection.count" count="&this.valid_values.size">
          <count:valid_values param/>
       </ht>
@@ -56,8 +60,14 @@
 <def tag="card" for="ValidValue">
   <card class="valid-value" param="default" merge>
     <header: param>
-      <h4 param="heading"><a><name/></a></h4>
+      <h4 param="heading"><name/></h4>
+      <div param="actions">
+        <delete-button label="X" param/>
+      </div>
     </header:>
+    <body: param>
+      <view:description param="description"/>
+    </body:>
   </card>
 </def>
 
