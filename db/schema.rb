@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100927173327) do
+ActiveRecord::Schema.define(:version => 20100928224228) do
 
   create_table "licenses", :force => true do |t|
     t.string   "name"
     t.boolean  "open_source"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "text_url"
   end
 
   create_table "parameters", :force => true do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20100927173327) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "repository_url"
   end
 
   create_table "users", :force => true do |t|
@@ -77,6 +79,10 @@ ActiveRecord::Schema.define(:version => 20100927173327) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "plugin_id"
+    t.boolean  "published"
+    t.text     "example"
+    t.integer  "major_revision",    :default => 0
+    t.integer  "minor_revision",    :default => 0
   end
 
   add_index "widgets", ["plugin_id"], :name => "index_widgets_on_plugin_id"

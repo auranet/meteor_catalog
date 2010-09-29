@@ -324,3 +324,9 @@ ul.check-many li input { vertical-align: -20%;}
 table.app-summary { border: 1px solid; border-collapse: collapse; }
 table.app-summary td { padding: 2px;  border: 1px dotted #bbb; }
 table.app-summary th { padding: 2px; border-bottom: 1px solid; background: #acd3e6; }
+
+.widget.card .greyed.section,
+.widget.card .greyed.section a {
+  color: #888888;
+  font-style: italic;
+}

@@ -1,0 +1,78 @@
+<index-page>
+  <collection:>
+      <card:>
+        <heading:>
+          <wrap when="&this.repository_url.present?"
+            tag="a" href="&this.repository_url">
+            <name/>
+          </wrap>
+        </heading:>
+        <body:>
+          <h5>Licenses</h5>
+          <collection:licenses>
+            <card:>
+              <heading:>
+                <wrap when="&this.text_url.present?"
+                  tag="a" href="&this.text_url">
+                  <name/>
+                </wrap>
+              </heading:>
+            </card:>
+          </collection:licenses>
+          <h5>Widgets</h5>
+          <collection:widgets>
+            <card:>
+              <heading:>
+                <wrap
+                  when="&this.major_revision < 1"
+                  tag="section" class="greyed">
+                  <wrap
+                    when="&current_user.administrator?"
+                    tag="a" action="edit">
+                    <name/> v<view:major_revision/>.<view:minor_revision/>
+                  </wrap>
+                </wrap>
+              </heading:>
+              <body:>
+                <section class="description">
+                  <h5>Description</h5>
+                  <wrap when="&this.long_description.present?"
+                    tag="a" href="#" class="dialog link">
+                    <%=h this.short_description %>
+                  </wrap>
+                  <view:long_description if="&this.long_description.present?"
+                    id="description-#{this.id}-content" class="dialog content"/>
+                </section>
+                <section class="example">
+                  <h5>Example</h5>
+                  <section class="code">
+                    <%=h this.example %>
+                  </section>
+                  <a class="dialog link" href="#">Show example output</a>
+                  <section id="example-#{this.id}-content"
+                    class="dialog content">
+                    <%=
+                      t = ERB.new(this.example, 0, "%<>")
+                      t.result(binding)
+                    %>
+                  </section>
+                </section>
+                <section class="parameters">
+                  <h5>Parameters</h5>
+                  <section class="parameter" repeat="&this.parameters">
+                    <a href="#" class="dialog link"><name/></a>
+                    <section id="example-#{this.id}-content"
+                      class="dialog content">
+                      <view:description/>
+                      <h5>Valid values</h5>
+                      <collection:valid_values/>
+                    </section>
+                  </section>
+                </section>
+              </body:>
+            </card:>
+          </collection:widgets>
+        </body:>
+      </card:>
+  </collection:>
+</index-page>

@@ -5,7 +5,11 @@ class Widget < ActiveRecord::Base
   fields do
     name              :string
     short_description :text
-    long_description  :text
+    long_description  :markdown
+    published         :boolean
+    example           :raw_html
+    major_revision    :integer, :default => 0
+    minor_revision    :integer, :default => 0
     timestamps
   end
 
@@ -29,7 +33,7 @@ class Widget < ActiveRecord::Base
   end
 
   def view_permitted?(field)
-    true
+    acting_user.administrator? or published?
   end
 
 end

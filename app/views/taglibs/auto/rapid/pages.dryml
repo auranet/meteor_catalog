@@ -99,6 +99,7 @@
           </header>
 
           <section param="content-body">
+            <field-list fields="text_url" param/>
           </section>
     </content:>
 
@@ -513,6 +514,7 @@
           </header>
 
           <section param="content-body" with-flash-messages>
+            <field-list fields="repository_url" param/>
             <section param="collection-section">
               <h3 param="collection-heading">
                 <ht key="plugins.collection.heading.other" >
@@ -943,7 +945,7 @@
               </ht>
             </h2>
 
-            <record-flags fields="" param/>
+            <record-flags fields="published" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="widgets.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
@@ -953,7 +955,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="short_description, long_description" param/>
+            <field-list fields="short_description, long_description, example, major_revision, minor_revision" param/>
             <section param="collection-section">
               <h3 param="collection-heading">
                 <ht key="widgets.collection.heading.other" >

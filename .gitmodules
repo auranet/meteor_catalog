@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/meteor"]
+	path = vendor/plugins/meteor
+	url = git@github.com:bretweinraub/meteor.git

@@ -4,6 +4,7 @@ class Plugin < ActiveRecord::Base
 
   fields do
     name :string
+    repository_url :string
     timestamps
   end
 

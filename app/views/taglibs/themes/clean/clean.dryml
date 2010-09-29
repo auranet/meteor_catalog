@@ -4,7 +4,13 @@
       <stylesheet name="reset"/>
       <theme-stylesheet/>
       <theme-stylesheet name="rapid-ui"/>
+      <stylesheet name="cupertino/jquery-ui-1.8.5.custom.css"/>
       <stylesheet name="application" param="app-stylesheet"/>
     </stylesheets:>
+    <after-scripts:>
+      <javascript name="jquery-1.4.2.min.js"/>
+      <javascript name="jquery-ui-1.8.5.custom.min.js"/>
+      <javascript name="dialog.js"/>
+    </after-scripts:>
   </old-page>
-</extend>  
+</extend>

@@ -5,6 +5,7 @@ class License < ActiveRecord::Base
   fields do
     name        :string
     open_source :boolean
+    text_url    :string
     timestamps
   end
 
