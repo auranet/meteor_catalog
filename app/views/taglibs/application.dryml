@@ -60,3 +60,21 @@
     </do>
   </navigation>
 </def>
+
+<def tag="parameter-info">
+  <section class="parameter">
+    <a href="#" class="dialog link"><name/></a>
+    <section id="example-#{this.id}-content"
+      class="dialog content">
+      <view:description/>
+      <h5>Valid values</h5>
+      <collection:valid_values/>
+    </section>
+  </section>
+</def>
+
+<def tag='parameter-list'>
+  <section class="parameter list">
+    <%= this.empty? ? "(No parameters)" : context_map { parameter_info }.join(", ") %>
+  </section>
+</def>

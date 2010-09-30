@@ -59,15 +59,7 @@
                 </section>
                 <section class="parameters">
                   <h5>Parameters</h5>
-                  <section class="parameter" repeat="&this.parameters">
-                    <a href="#" class="dialog link"><name/></a>
-                    <section id="example-#{this.id}-content"
-                      class="dialog content">
-                      <view:description/>
-                      <h5>Valid values</h5>
-                      <collection:valid_values/>
-                    </section>
-                  </section>
+                  <parameter-list with="&this.parameters"/>
                 </section>
               </body:>
             </card:>

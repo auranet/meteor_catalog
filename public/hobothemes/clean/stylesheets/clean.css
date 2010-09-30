@@ -330,3 +330,8 @@ table.app-summary th { padding: 2px; border-bottom: 1px solid; background: #acd3
   color: #888888;
   font-style: italic;
 }
+
+.parameter.section,
+.parameter.section * {
+  display: inline;
+}
