@@ -697,29 +697,6 @@
 </def>
 
 
-<def tag="signup-page" polymorphic/>
-<def tag="signup-page" for="User">
-  
-  <page title="#{ht 'users.signup.title', :default=>['Signup']}" merge>  
-
-    <body: class="lifecycle-start-page signup-page" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="users.signup.heading">
-            Signup
-          </ht>
-        </h2>
-      </header>
-
-      <section param="content-body">
-        <signup-form param="form"/>
-      </section>
-    </content:>
-
-  </page>
-</def>
 
 <def tag="reset-password-page" polymorphic/>
 <def tag="reset-password-page" for="User">

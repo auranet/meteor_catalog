@@ -48,3 +48,15 @@
     </body:>
   </card>
 </def>
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item href="/plugins/catalog"><ht key="plugins_catalog.nav_item">Plugins Catalog</ht></nav-item>
+    <do if="&current_user.administrator?">
+      <nav-item with="&Plugin"><ht key="plugins.nav_item">Plugins</ht></nav-item>
+      <nav-item with="&License"><ht key="licenses.nav_item">Licenses</ht></nav-item>
+      <nav-item with="&Widget"><ht key="widgets.nav_item">Widgets</ht></nav-item>
+    </do>
+  </navigation>
+</def>

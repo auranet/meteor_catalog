@@ -58,16 +58,6 @@
   </form>
 </def>
 
-<def tag="signup-form" polymorphic/>
-<def tag="signup-form" for="User">
-  <form lifecycle="signup" merge param="default">
-    <error-messages param/>
-    <field-list fields="name, email_address, password, password_confirmation" param/>
-    <div param="actions">
-      <submit label="#{ht 'users.actions.signup', :default=>['Signup']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
 
 <def tag="reset-password-form" polymorphic/>
 <def tag="reset-password-form" for="User">
