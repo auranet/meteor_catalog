@@ -3,7 +3,7 @@
       <card:>
         <heading:>
           <wrap when="&this.repository_url.present?"
-            tag="a" href="&this.repository_url">
+            tag="a" target="_blank" href="&this.repository_url">
             <name/>
           </wrap>
         </heading:>
@@ -13,7 +13,7 @@
             <card:>
               <heading:>
                 <wrap when="&this.text_url.present?"
-                  tag="a" href="&this.text_url">
+                  tag="a" target="_blank" href="&this.text_url">
                   <name/>
                 </wrap>
               </heading:>
