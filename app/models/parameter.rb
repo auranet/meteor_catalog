@@ -11,6 +11,8 @@ class Parameter < ActiveRecord::Base
   belongs_to :widget
   has_many :valid_values
 
+  set_default_order "name"
+
   # --- Permissions --- #
 
   def create_permitted?
