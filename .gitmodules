@@ -4,3 +4,6 @@
 [submodule "vendor/plugins/dhtml_menu"]
 	path = vendor/plugins/dhtml_menu
 	url = git://github.com/bretweinraub/dhtml_menu.git
+[submodule "vendor/plugins/remote_content"]
+	path = vendor/plugins/remote_content
+	url = git://github.com/auranet/remote_content.git
