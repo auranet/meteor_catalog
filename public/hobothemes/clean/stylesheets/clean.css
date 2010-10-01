@@ -228,6 +228,12 @@ form .actions {margin: 30px 0; width: 100%; text-align: center;}
 }
 .card h4 {margin-top: 0;}
 .card a {background: #f5f5f5;}
+
+.card .card,
+.card .card a{
+	background: #eaeaea;
+}
+
 .card .creation-details {
 	display: block; color: #333; font-size: 11px;
 }
