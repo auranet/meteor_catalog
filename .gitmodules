@@ -6,7 +6,7 @@
 	url = git://github.com/bretweinraub/dhtml_menu.git
 [submodule "vendor/plugins/remote_content"]
 	path = vendor/plugins/remote_content
-	url = git://github.com/auranet/remote_content.git
+	url = git://github.com/asapnet/remote_content.git
 [submodule "vendor/plugins/paperclip"]
 	path = vendor/plugins/paperclip
 	url = http://github.com/thoughtbot/paperclip.git
