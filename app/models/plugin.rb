@@ -12,6 +12,8 @@ class Plugin < ActiveRecord::Base
   has_many :licenses, :through => :plugin_licenses, :accessible => true
   has_many :plugin_licenses, :dependent => :destroy
 
+  set_default_order "name"
+
   # --- Permissions --- #
 
   def create_permitted?
