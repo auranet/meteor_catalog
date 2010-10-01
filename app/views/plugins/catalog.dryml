@@ -56,14 +56,7 @@
                   <section class="code">
                     <pre><code><%=h this.example %></code></pre>
                   </section>
-                  <a class="dialog link" href="#">Show example output</a>
-                  <section id="example-#{this.id}-content"
-                    class="dialog content">
-                    <%=
-                      t = ERB.new(this.example, 0, "%<>")
-                      t.result(binding)
-                    %>
-                  </section>
+                  <a action="example" target="_blank">Show example output</a>
                 </section>
                 <section class="parameters">
                   <h5>Parameters</h5>

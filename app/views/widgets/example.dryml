@@ -1,0 +1,10 @@
+<show-page>
+  <head:>
+  </head:>
+  <body:>
+    <%=
+      t = ERB.new(this.example, 0, "%<>")
+      t.result(binding)
+    %>
+  </body:>
+</show-page>

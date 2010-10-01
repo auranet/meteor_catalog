@@ -4,5 +4,6 @@ class WidgetsController < ApplicationController
 
   auto_actions :all
   auto_actions_for :plugin, [:create]
+  show_action :example
 
 end
