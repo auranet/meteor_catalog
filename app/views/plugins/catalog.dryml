@@ -43,13 +43,12 @@
                   <view:long_description if="&this.long_description.present?"
                     id="description-#{this.id}-content" class="dialog content"/>
                 </section>
+                <section class="parameters">
+                  <h5>Parameters</h5>
+                  <parameter-list with="&this.parameters"/>
+                </section>
                 <section class="diagram" if="&this.diagram_file_name.present?">
-                  <h5>Diagram</h5>
-                  <a class="dialog link" href="#">Show diagram</a>
-                  <section id="diagram-#{this.id}-content"
-                    class="dialog content">
-                    <img alt="diagram" src="#{this.diagram.url}"/>
-                  </section>
+                  <img alt="diagram" src="#{this.diagram.url}"/>
                 </section>
                 <section class="example" if="&this.example.present?">
                   <h5>Example</h5>
@@ -57,10 +56,6 @@
                     <pre><code><%=h this.example %></code></pre>
                   </section>
                   <a action="example" target="_blank">Show example output</a>
-                </section>
-                <section class="parameters">
-                  <h5>Parameters</h5>
-                  <parameter-list with="&this.parameters"/>
                 </section>
               </body:>
             </card:>
