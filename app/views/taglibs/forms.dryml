@@ -1,0 +1,5 @@
+<extend tag="form" for="Widget">
+  <old-form merge multipart>
+    <field-list: fields="name, short_description, long_description, published, example, major_revision, minor_revision, diagram, plugin"/>
+  </old-form>
+</extend>
