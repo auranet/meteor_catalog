@@ -46,7 +46,7 @@
                 <section class="example" if="&this.example.present?">
                   <h5>Example</h5>
                   <section class="code">
-                    <%=h this.example %>
+                    <pre><code><%=h this.example %></code></pre>
                   </section>
                   <a class="dialog link" href="#">Show example output</a>
                   <section id="example-#{this.id}-content"
