@@ -14,8 +14,7 @@ jQuery(document).ready(function () {
             title: title,
             modal: true,
             position: 'center',
-            height: 480,
-            width: 640
+            width: 'auto'
         });
     });
 });
