@@ -6,12 +6,14 @@ jQuery(document).ready(function () {
             title = jQuery(this).text();
             jQuery(this).click(function () {
               jQuery(selector).dialog('open');
+              return false;
             });
         });
         jQuery(selector).dialog({
             autoOpen: false,
             title: title,
             modal: true,
+            position: 'center',
             height: 480,
             width: 640
         });
