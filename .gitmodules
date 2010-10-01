@@ -7,3 +7,9 @@
 [submodule "vendor/plugins/remote_content"]
 	path = vendor/plugins/remote_content
 	url = git://github.com/auranet/remote_content.git
+[submodule "vendor/plugins/paperclip"]
+	path = vendor/plugins/paperclip
+	url = http://github.com/thoughtbot/paperclip.git
+[submodule "vendor/plugins/paperclip_with_hobo"]
+	path = vendor/plugins/paperclip_with_hobo
+	url = http://github.com/tablatom/paperclip_with_hobo.git
