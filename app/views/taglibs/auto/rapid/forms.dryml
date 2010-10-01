@@ -86,7 +86,7 @@
 <def tag="form" for="Widget">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, short_description, long_description, published, example, major_revision, minor_revision, plugin" param/>
+    <field-list fields="name, short_description, long_description, published, example, major_revision, minor_revision, diagram_file_name, diagram_content_type, diagram_file_size, diagram_updated_at, plugin" param/>
     <div param="actions">
       <submit label="#{ht 'widgets.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

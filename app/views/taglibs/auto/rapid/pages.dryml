@@ -932,7 +932,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="short_description, long_description, example, major_revision, minor_revision" param/>
+            <field-list fields="short_description, long_description, example, major_revision, minor_revision, diagram_file_name, diagram_content_type, diagram_file_size, diagram_updated_at" param/>
             <section param="collection-section">
               <h3 param="collection-heading">
                 <ht key="widgets.collection.heading.other" >

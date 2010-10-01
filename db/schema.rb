@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100928224228) do
+ActiveRecord::Schema.define(:version => 20101001155323) do
 
   create_table "licenses", :force => true do |t|
     t.string   "name"
@@ -81,8 +81,12 @@ ActiveRecord::Schema.define(:version => 20100928224228) do
     t.integer  "plugin_id"
     t.boolean  "published"
     t.text     "example"
-    t.integer  "major_revision",    :default => 0
-    t.integer  "minor_revision",    :default => 0
+    t.integer  "major_revision",       :default => 0
+    t.integer  "minor_revision",       :default => 0
+    t.string   "diagram_file_name"
+    t.string   "diagram_content_type"
+    t.integer  "diagram_file_size"
+    t.datetime "diagram_updated_at"
   end
 
   add_index "widgets", ["plugin_id"], :name => "index_widgets_on_plugin_id"

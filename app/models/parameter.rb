@@ -4,7 +4,7 @@ class Parameter < ActiveRecord::Base
 
   fields do
     name        :string
-    description :text
+    description :markdown
     timestamps
   end
 

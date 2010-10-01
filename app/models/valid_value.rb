@@ -4,7 +4,7 @@ class ValidValue < ActiveRecord::Base
 
   fields do
     value       :string
-    description :text
+    description :markdown
     timestamps
   end
 

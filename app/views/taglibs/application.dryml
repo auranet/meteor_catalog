@@ -4,6 +4,8 @@
 <include src="taglibs/auto/rapid/pages"/>
 <include src="taglibs/auto/rapid/forms"/>
 
+<include src="paperclip" plugin="paperclip_with_hobo"/>
+
 <set-theme name="clean"/>
 
 <def tag="app-name">Meteor Catalog</def>
@@ -78,3 +80,9 @@
     <%= this.empty? ? "(No parameters)" : context_map { parameter_info }.join(", ") %>
   </section>
 </def>
+
+<extend tag="form" for="Widget">
+  <old-form merge multipart>
+    <field-list: fields="name, short_description, long_description, published, example, major_revision, minor_revision, diagram, plugin"/>
+  </old-form>
+</extend>

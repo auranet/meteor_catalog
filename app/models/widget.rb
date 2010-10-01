@@ -13,6 +13,8 @@ class Widget < ActiveRecord::Base
     timestamps
   end
 
+  has_attached_file :diagram
+
   belongs_to :plugin
   has_many :parameters
 
