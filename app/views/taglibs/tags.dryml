@@ -1,5 +1,8 @@
 <def tag="app-name">Meteor Catalog</def>
 
+<!--` hobo uses the text <editor/> for markdown by default.  This sanitizes HTML, which we don't want. `-->
+<def tag='editor' for='HoboFields::MarkdownString'><% attributes["class"].gsub!('markdown', 'html') %><%= in_place_editor(attributes, this) %></def>
+
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
