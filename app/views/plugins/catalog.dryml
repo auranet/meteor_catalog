@@ -48,6 +48,7 @@
                   <parameter-list with="&this.parameters"/>
                 </section>
                 <section class="diagram" if="&this.diagram_file_name.present?">
+                  <h5>Diagram</h5>
                   <img alt="diagram" src="#{this.diagram.url}"/>
                 </section>
                 <section class="example" if="&this.example.present?">
