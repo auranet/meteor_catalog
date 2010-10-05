@@ -877,7 +877,10 @@ Event.addBehavior({
     '.markdown.in-place-edit' : function (ev) {
         var ipe = Hobo._makeInPlaceEditor(this, {rows: 2})
         ipe.getText = function() {
-            return this.element.innerHTML.replace('&gt;', '>').replace('&lt;', '<')
+            return this.element.innerHTML
+                .replace('&gt;', '>')
+                .replace('&lt;', '<')
+                .replace('&amp;', '&')
         }
     },
 
