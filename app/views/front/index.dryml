@@ -24,9 +24,11 @@ Meteor supports the construction of complex UI widgets that:
  
 <br/>
 Meteor is a low overhead framework to DRY out your partials.  Some existing widgets include:
-A menu system that can be embedded anywhere (but most usefully in application layout templates);
-Hierarchical collapsible form builders driven by model relationships and attributes;
-A remote content proxy for white-labeling application functionality with third-party styling, headers, footers, etc.
+<ul>
+<li>A menu system that can be embedded anywhere (but most usefully in application layout templates);</li>
+<li>Hierarchical collapsible form builders driven by model relationships and attributes;</li>
+<li>A remote content proxy for white-labeling application functionality with third-party styling, headers, footers, etc.</li>
+</ul>
  
 <h1>How</h1>
  
