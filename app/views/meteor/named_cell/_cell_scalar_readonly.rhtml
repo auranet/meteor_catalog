@@ -1,0 +1,6 @@
+  <td class="<%= name %> named_cell_label">
+    <%= cell.title %>:
+  </td>
+  <td class="<%= name %> named_cell_data">
+    <%=h replace_blank(object.send(cell.name)) %>
+  </td>
