@@ -1,5 +1,7 @@
 <show-page>
   <head:>
+    <%= javascript_include_tag :defaults %>
+    <%= meteor_includes %>
   </head:>
   <body:>
     <%=

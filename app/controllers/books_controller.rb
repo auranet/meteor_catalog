@@ -56,89 +56,46 @@ class BooksController < ApplicationController
     end
   end
 
-  # GET /books
-  # GET /books.xml
-  def index
-    @books = Book.all
+  # Tweak to allow users to play with the widget without
+  # changing our data.
+  def named_cell_inplace_edit
+    id = params['id']
+    cell_name = params['cell_name']
+    spec_name = params['spec']
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @books }
-    end
-  end
+    raise "cannot find meteor spec for #{spec_name}" unless spec = meteor_spec(:name => spec_name)
+    raise 'cannot determine object class' unless _klass = params['object_class']
+    raise "no such class #{_klass}" unless klass = self.class.const_get(_klass)
+    raise "cannot load object of type #{_klass} with id #{id}" unless object = klass.find(id)
 
-  # GET /books/1
-  # GET /books/1.xml
-  def show
-    renderer = Meteor::Widget::NamedCell::Renderer.new(
-      :spec => meteor_spec(:name => 'book'),
-      :controller => self,
-		  :frontend => "named_cell",
-      :params => params,
-	    :id => params[:id]
-    )
-    render :inline => renderer.render, :layout => true
-  end
-
-  # GET /books/new
-  # GET /books/new.xml
-  def new
-    @book = Book.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @book }
-    end
-  end
-
-  # GET /books/1/edit
-  def edit
-    @book = Book.find(params[:id])
-  end
-
-  # POST /books
-  # POST /books.xml
-  def create
-    @book = Book.new(params[:book])
-
-    respond_to do |format|
-      if @book.save
-        flash[:notice] = 'Book was successfully created.'
-        format.html { redirect_to(@book) }
-        format.xml  { render :xml => @book, :status => :created, :location => @book }
+    if params['ref']
+      _ref_klass = cell_name.capitalize
+      raise "no such class #{_ref_klass}" \
+        unless ref_klass = self.class.const_get(_ref_klass)
+      if params['value'].blank?
+        value = nil
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
+        value = ref_klass.find(params['value'])
+      end
+    else
+      value = params['value']
+    end
+    object.send("#{cell_name}=", value)
+    #object.save!
+    #object.reload
+
+    new_value = object.send(cell_name.to_sym)
+    output = ""
+    [:name, :to_label, :to_s].each do |method|
+      if new_value.respond_to? method
+        output = new_value.send(method)
+        break
       end
     end
-  end
-
-  # PUT /books/1
-  # PUT /books/1.xml
-  def update
-    @book = Book.find(params[:id])
-
-    respond_to do |format|
-      if @book.update_attributes(params[:book])
-        flash[:notice] = 'Book was successfully updated.'
-        format.html { redirect_to(@book) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
-      end
+    if output.blank?
+      output = '-'
     end
-  end
 
-  # DELETE /books/1
-  # DELETE /books/1.xml
-  def destroy
-    @book = Book.find(params[:id])
-    @book.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(books_url) }
-      format.xml  { head :ok }
-    end
+    render :inline => CGI.escapeHTML(output)
   end
 end
