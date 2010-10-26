@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
 
     state :active, :default => true
 
-    #create :signup, :available_to => "Guest",
-    #       :params => [:name, :email_address, :password, :password_confirmation],
-    #       :become => :active
+    create :signup, :available_to => (User.count == 0 ? "Guest" : nil),
+           :params => [:name, :email_address, :password, :password_confirmation],
+           :become => :active
 
     transition :request_password_reset, { :active => :active }, :new_key => true do
       UserMailer.deliver_forgot_password(self, lifecycle.key)
