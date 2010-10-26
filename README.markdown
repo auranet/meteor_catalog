@@ -36,6 +36,10 @@ Installing
     ruby-debug-base (0.10.3)
     will_paginate (2.3.15)
 
+    $ sudo su - postgres
+    postgres$ createdb meteor_catalog_development
+    postgres$ logout
+
     $ rake db:migrate
 
 Getting Started
