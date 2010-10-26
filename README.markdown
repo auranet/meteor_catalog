@@ -9,6 +9,7 @@ Installing
     $ gem install pg
     $ gem install rails -v 2.3.8
     $ gem install hobo hobosupport hobofields will_paginate --ignore-dependencies # Hobo will install rails 3 otherwise
+    $ gem install ckuru-tools
     $ rake gems:install
     $ gem list
 
